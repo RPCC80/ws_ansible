@@ -1,0 +1,16 @@
+---
+  - name: Query Contract SnV
+    cisco.aci.aci_contract:
+      host: "{{ansible_host}}"
+      username: "{{username}}"
+      password: "{{password}}"
+      tenant: SnV
+      state: query
+    register: query_result
+
+     
+  - name: Ausgabe
+    ansible.builtin.debug:
+      msg: "{{ query_result | community.general.json_query(filter)}}"
+    vars:
+      filter: "current[*].fvTenant.children[*].vzBrCP.attributes.name"
