@@ -1,0 +1,19 @@
+[all:vars]
+ansible_user=ansible
+ansible_ssh_pass=ansible
+ansible_port=22
+
+[web]
+node1 ansible_host=3.67.13.120
+node2 ansible_host=3.68.98.125
+node3 ansible_host=35.158.122.245
+
+[web:vars]
+ansible_user=ansible
+
+[ftpserver]
+node2 ansible_host=3.68.98.125
+
+
+[control]
+ansible-1 ansible_host=3.67.10.84 ansible_connection=local
